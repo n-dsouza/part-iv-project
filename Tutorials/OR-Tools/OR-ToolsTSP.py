@@ -1,8 +1,6 @@
 # Chapter 2
 #https://developers.google.com/optimization/routing/tsp
 
-print('change from josh')
-
 ############################################################
 #           Example 1: TSP (vanilla flavoured)
 ############################################################
