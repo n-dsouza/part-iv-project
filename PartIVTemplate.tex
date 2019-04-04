@@ -1,0 +1,195 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Palatino font
+
+
+%%% PAGE DIMENSIONS
+\usepackage[margin=2.54cm]{geometry} % 1.27 is narrower!
+\geometry{a4paper} 
+
+%%% Font set to times new roman
+\usepackage{times}
+%%% Really good graphics package
+\usepackage{graphicx}
+
+%%% To embed code
+% \usepackage{pygmentex}
+% \usepackage{minted}
+
+% Insert {PDFS}
+\usepackage{pdfpages}
+
+% Change section spacing, remove the spacing
+\usepackage[compact]{titlesec}
+\titlespacing*{\section}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{*0}{*0}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+
+%%% Better floats
+\usepackage{float}
+
+
+\usepackage{tikz}
+\usepackage{wrapfig}
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{amsmath} % for better maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage{mathtools} % matrices
+\usepackage{blkarray, bigstrut} % matrices
+
+\usepackage[framed,numbered]{matlab-prettifier} % enable inserting matlab code.
+\usepackage[parfill]{parskip}
+%\addtolength{\jot}{1em}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{pdflscape} % Enabling rotating pages into a landscape orientation.
+
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% Hyperlinking 
+\usepackage{hyperref}
+\begin{document}
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+	\center % Centre everything on the page
+	
+	%------------------------------------------------
+	%	Headings
+    %------------------------------------------------
+    
+	\textsc{\LARGE University of Auckland}\\[1.5cm] % Main heading such as the name of your university/college
+	\textsc{\Large Department of Engineering Science}\\[0.5cm] % Major heading such as course name
+	\textsc{\large Part IV project}\\[0.5cm] % Minor heading such as course title
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\HRule\\[0.4cm]
+	{\huge\bfseries The Last Mile}\\[0.4cm] % Title of your document
+	\HRule\\[1cm]
+	
+	%------------------------------------------------
+	%	Author(s)
+	%------------------------------------------------
+	
+%     \begin{minipage}[t]{0.4\textwidth}
+%         \vspace{0pt}
+% 		\begin{center}
+% 			\large
+% 			Noel \textsc{D'Souza}\\ % Your name
+% 			\textit{ndso092}\\
+% 			\textit{449609993}
+% 		\end{center}
+% 	\end{minipage}
+	\begin{minipage}[t]{0.4\textwidth}
+        \vspace{0pt}
+		\begin{flushleft}
+			\large
+			\textit{Author}\\
+            \textsc{N. J. D'Souza} % Supervisor's name
+		\end{flushleft}
+	\end{minipage}
+	~
+    \begin{minipage}[t]{0.4\textwidth}
+        \vspace{0pt}\raggedright
+		\begin{flushright}
+			\large
+			\textit{Supervisor}\\
+            Dr. Tony \textsc{Downward} % Supervisor's name
+		\end{flushright}
+	\end{minipage}
+
+	% If you don't want a supervisor, uncomment the two lines below and comment the code above
+	%{\large\textit{Author}}\\
+	%John \textsc{Smith} % Your name
+	
+	%------------------------------------------------
+	%	Date
+	%------------------------------------------------
+	
+	\vfill\vfill\vfill % Position the date 3/4 down the remaining page
+	
+    {\large\today} % Date, change the \today to a set date if you want to be precise
+    % {\large 7 August, 2019}
+	
+	%------------------------------------------------
+	%	Logo
+	%------------------------------------------------
+	
+    % \vfill
+    
+    % \begin{minipage}[t]{0.4\textwidth}
+    %     \vspace{0pt}
+    %     \begin{flushleft}
+    %     \includegraphics[width=0.9\textwidth]{engtitle.png}\\[1cm]
+	% 	\end{flushleft}
+	% \end{minipage}
+	% ~
+    % \begin{minipage}[t]{0.4\textwidth}
+    %     \vspace{0pt}\raggedright
+	% 	\begin{flushright}
+    %         \includegraphics[width=0.45\textwidth]{pwc.png}\\[1cm]        
+	% 	\end{flushright}
+	% \end{minipage}
+
+
+    % \includegraphics[width=0.4\textwidth]{engtitle.png}\\[1cm] % Include a department/university logo - this will require the graphicx package
+	 
+	%----------------------------------------------------------------------------------------
+	
+	\vfill % Push the date up 1/4 of the remaining page
+	
+% Section headings and corresponding page numbers. List of figures, list of tables: figure/table numbers and titles, corresponding page numbers.
+\end{titlepage}
+
+\tableofcontents
+\lstlistoflistings
+\listoffigures
+%\listoftables
+\newpage
+
+
+
+\end{document}
+
+
+% \documentclass{article}
+% \usepackage[utf8]{inputenc}
+
+% \title{Part 4 Report}
+% \author{Noel D'Souza}
+% \date{March 2019}
+
+% \begin{document}
+
+% \maketitle
+
+% \section{Introduction}
+
+% \end{document}
