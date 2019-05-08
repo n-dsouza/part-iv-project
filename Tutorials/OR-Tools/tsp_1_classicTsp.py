@@ -13,6 +13,7 @@ from ortools.constraint_solver import pywrapcp
 
 def create_data_model():
     """Stores the data for the problem."""
+    
     data = {}
     data['distance_matrix'] = [
         # [0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972],

@@ -27,24 +27,23 @@ def create_data():
                     #    '1005+Tillman+St+Memphis+TN'
                     #   ]
 
-  data['addresses'] = ['21/19+Donovan+St+Blockhouse+Bay+Auckland', # depot
-                       '3/7+Heaphy+St+Blockhouse+Bay+Auckland',
-                       'Queen+Street+Auckland',
-                       'New+Lynn+Auckland',
-                       'Henderson+Auckland'
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    '',
-                    #    ''
-                      ]
+  # data['addresses'] = ['21/19+Donovan+St+Blockhouse+Bay+Auckland', # depot
+  #                      '3/7+Heaphy+St+Blockhouse+Bay+Auckland',
+  #                      'Queen+Street+Auckland',
+  #                      'New+Lynn+Auckland',
+  #                      'Henderson+Auckland'
+  # ]
 
+  data['addresses'] = ['21/19+Donovan+St+Blockhouse+Bay+Auckland', # depot
+			                  '3/7+Heaphy+St+Blockhouse+Bay+Auckland',
+			                  'Queen+Street+Auckland',
+			                  'New+Lynn+Auckland',
+			                  'Henderson+Auckland'
+		]
+  print()
+  for row in data['addresses']:
+    print(row)
+  print()
   return data
 
 def create_distance_matrix(data):
@@ -133,4 +132,9 @@ Tomorrow's tasks:
   9.2 What about plotting straight Address on HTML map?
   9.3 What about using lat/lng as the input for distance matrix (currently it's addresses (english) see above in this file!)
   
+
+Tony:
+1. Bilevel optimisation: Start with #drivers, then second problem is placing them and setting their routes
+2. This might also be iterative/ML focused/Heuristics
+3. Convert to Capacitated VRP or time-window VRP
 '''
