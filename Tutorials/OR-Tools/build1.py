@@ -6,10 +6,14 @@ import requests
 import json
 import urllib
 
+from pygeocoder import Geocoder
+# from googlemaps import GoogleMaps
+
 def create_data_model():
 	"""Stores the data for the problem."""
 	data = {}
 	data['API_key'] = 'AIzaSyAJNMb6TPHQ1ZrYtwqG1953e-y1c1dFt7w'
+	# gmaps = GoogleMaps(data['API_key'])
 
 	data['hardcode'] = 0
 
@@ -42,9 +46,19 @@ def create_data_model():
 			'Henderson+Auckland'
 		]
 		print()
-		for row in data['addresses']:
-			print(row)
+
+		data['coordinate_pairs'] = []
+
+		for addr in data['addresses']:
+			print(addr)
+
+
+			coord_pair = get_coords_from_addresses(addr, data['API_key'])
+			data['coordinate_pairs'].append(coord_pair)
+
 	print()
+	print(data['addresses'])
+	print(data['coordinate_pairs'])
 
 	data['num_vehicles'] = 1
 	data['depot'] = 0
@@ -107,6 +121,26 @@ def build_distance_matrix(response):
 	  row_list = [row['elements'][j]['distance']['value'] for j in range(len(row['elements']))]
 	  distance_matrix.append(row_list)
   return distance_matrix
+
+
+def get_coords_from_addresses(addr, API_key):	
+	coord_request = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+	coord_request = coord_request + addr + '&key=' + API_key # redundancy.
+	jsonResult = urllib.request.urlopen(coord_request).read()
+	response = json.loads(jsonResult)
+
+	coord_pair = []
+	coord_pair.append(response['results'][0]['geometry']['location']['lat'])
+	coord_pair.append(response['results'][0]['geometry']['location']['lng'])
+
+	return coord_pair
+# 	for addr in data['addresses']:
+
+
+
+
+# 	return coords
+
 ''' 
 
 Tomorrow's tasks:
@@ -114,13 +148,13 @@ Tomorrow's tasks:
 2. Put the Distance Matrix code in same place as the TSP code.
 3. Figure a way to call/interface with HTML from python and vice versa (maybe just writing to file?)
 4. Figure a way to load a map on browser (html, open! from python)
-5. Figure a way to draw lines
+5. ##### Figure a way to draw lines - ROUTES!!!! ##########
 6. Basically, while you're doing all the plotting as above, see if there is a way to plot from ortools directly!
 7. Web scraping for Countdown locations! Plot em.
 8. See if there's a way to click on HTML map and store the clicks. That database of lng/lat convert to address.
 9. This code did address to API distance matrix. 
-  9.1 Is there a way to do Address to Lat/Lng to plot on HTML map?
-  9.2 What about plotting straight Address on HTML map?
+  9.1 ##### Is there a way to do Address to Lat/Lng to plot on HTML map? #####
+  9.2 ##### What about plotting straight Address on HTML map? #####
   9.3 What about using lat/lng as the input for distance matrix (currently it's addresses (english) see above in this file!)
   
 '''
