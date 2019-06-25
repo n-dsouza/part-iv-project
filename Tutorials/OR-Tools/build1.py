@@ -18,14 +18,22 @@ def create_data_model():
 		print()
 		print('hardcode')
 		data['distance_matrix'] = [
-			[0, 283, 16261, 3063, 10244],
-			[267, 0, 16186, 2823, 10004],
-			[13037, 13057, 0, 11578, 16300],
-			[3034, 2796, 12876, 0, 7602],
-			[10394, 10156, 17244, 7718, 0]
+			# Weird. Some numbers in this matrix were wrong. How come?!
+			# [0, 283, 16261, 3063, 10244],
+			# [267, 0, 16186, 2823, 10004],
+			# [13037, 13057, 0, 11578, 16300],
+			# [3034, 2796, 12876, 0, 7602],
+			# [10394, 10156, 17244, 7718, 0]
+			[0, 283, 15485, 3063, 10254],
+			[267, 0, 15410, 2823, 10014],
+			[13037, 13057, 0, 11578, 17387],
+			[3034, 2796, 12100, 0, 7611],
+			[10411, 10173, 16484, 7735, 0]
+
 		] # yapf: disable
 	else:
 		print()
+		print('-----------------------------------------------------------------------------------------------------------------------------')
 		print('NOT hardcode')
 		data['addresses'] = ['21/19+Donovan+St+Blockhouse+Bay+Auckland', # depot
 			'3/7+Heaphy+St+Blockhouse+Bay+Auckland',
@@ -33,10 +41,9 @@ def create_data_model():
 			'New+Lynn+Auckland',
 			'Henderson+Auckland'
 		]
-
-	print()
-	for row in data['addresses']:
-		print(row)
+		print()
+		for row in data['addresses']:
+			print(row)
 	print()
 
 	data['num_vehicles'] = 1
@@ -186,3 +193,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
+	print('--------------------------------------------------------------')
